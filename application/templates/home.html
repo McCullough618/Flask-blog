@@ -1,20 +1,14 @@
-<h1>{{ title }}</h1>
+{% extends "layout.html" %}
 
-{% extends 'layout.html' %}
 {% block body_content %}
-
-   
-        <div>
-            <h3>{{ post.title }}</h3>
-            <p><b> - First name:</b>{{ post.first_name }}</p>
-            <p><b> - Last name:</b>{{ post.last_name }}</p>
-            <p> -- {{ post.content }}</p>
-        </div>
-
-
-    <h1>Home Page</h1>
-    <p>Welcome to this web app!</p>
-        <div>
-            <h3>{{ post.title }}</h3>
-        </div>
-{% endblock body_content %}
+<p>this is a home page</p>
+{% for post in posts %}
+	<div>
+		<h3>{{ post.title }}</h3>
+		<p><b> - First name:</b>{{ post.author.first_name }}</p>
+		<p><b> - Last name:</b>{{ post.author.last_name }}</p>
+		<p> -- {{ post.content }}</p>
+	</div>
+{% endfor %}
+	
+{% endblock body_content%}
